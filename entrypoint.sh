@@ -5,8 +5,9 @@ set -e
 echo "Starting Ollama..."
 ollama serve &
 
+
 echo "Waiting for Ollama API..."
-until curl -s http://127.0.0.1:11434/api/tags > /dev/null; do
+until ollama list > /dev/null 2>&1; do
   sleep 2
 done
 

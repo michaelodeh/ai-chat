@@ -7,16 +7,15 @@ EXPOSE 11434
 
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
 
-# FROM  ubuntu:latest
+# FROM ubuntu:22.04
 
-# RUN apt-get update && apt-get install -y curl
+# RUN apt-get update && \
+#     apt-get install -y curl ca-certificates && \
+#     curl -fsSL https://ollama.com/install.sh | sh
 
-# RUN apt-get install zstd
-
-# RUN curl -fsSL https://ollama.com/install.sh | sh
-
-# RUN ollama run gemma3
+# COPY entrypoint.sh /entrypoint.sh
+# RUN chmod +x /entrypoint.sh
 
 # EXPOSE 11434
 
-# CMD ["ollama", "serve"]
+# ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
