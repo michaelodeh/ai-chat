@@ -1,7 +1,7 @@
 FROM ollama/ollama:latest
 
 # pull model at build time
-RUN ollama pull llama3
+RUN ollama run gemma3
 
 EXPOSE 11434
 
