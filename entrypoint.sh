@@ -1,18 +1,17 @@
 #!/bin/bash
 
-# Start Ollama server in background
-ollama serve & 
+set -e
 
-# Wait for Ollama server to be ready
-while ! curl -s http://localhost:11434/ >/dev/null; do
-  echo "Waiting for Ollama server to start..."
-  sleep 1
+echo "Starting Ollama..."
+ollama serve &
+
+echo "Waiting for Ollama API..."
+until curl -s http://127.0.0.1:11434/api/tags > /dev/null; do
+  sleep 2
 done
 
-# Pull the model
-echo "Pulling gemma3 model..."
-ollama pull gemma3
+echo "Pulling model..."
+ollama run gemma3
 
-# Keep the container running
-echo "Ollama server is running with gemma3 model. Press Ctrl+C to stop."
+echo "Ollama ready."
 wait
