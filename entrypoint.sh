@@ -12,7 +12,7 @@ until ollama list > /dev/null 2>&1; do
 done
 
 echo "Pulling model..."
-ollama pull gemma3
+ollama pull tinyllama
 
 echo "Ollama ready."
 wait
