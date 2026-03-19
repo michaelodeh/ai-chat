@@ -4,7 +4,6 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 11434
-RUN ollama pull gemma3
 
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
 
