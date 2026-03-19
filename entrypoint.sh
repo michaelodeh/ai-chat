@@ -11,8 +11,8 @@ until ollama list > /dev/null 2>&1; do
   sleep 2
 done
 
-echo "Pulling model..."
-ollama run gemma3
+# echo "Pulling model..."
+# ollama run gemma3
 
 echo "Ollama ready."
 wait
